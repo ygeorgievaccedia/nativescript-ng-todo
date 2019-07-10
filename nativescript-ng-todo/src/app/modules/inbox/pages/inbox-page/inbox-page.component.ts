@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+
+import { Store } from '~/app/core/state/app-store';
 
 @Component({
-  selector: 'ns-inbox-page',
-  templateUrl: './inbox-page.component.html',
-  styleUrls: ['./inbox-page.component.css'],
-  moduleId: module.id,
+    selector: "ns-inbox-page",
+    templateUrl: "./inbox-page.component.html",
+    styleUrls: ["./inbox-page.component.scss"],
+    moduleId: module.id
 })
-export class InboxPageComponent implements OnInit {
+export class InboxPageComponent{
+    public currentUser$ = this.store.select<any>("currentUser");
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    constructor(private readonly store: Store) {}
 }

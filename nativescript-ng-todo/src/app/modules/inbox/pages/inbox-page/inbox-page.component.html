@@ -1,1 +1,3 @@
-<Button text="inbox-page works!" class="btn btn-primary"></Button>
+<StackLayout>
+    <Label [text]="(currentUser$ | async)?.email"></Label>
+</StackLayout>

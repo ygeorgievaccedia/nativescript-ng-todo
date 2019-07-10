@@ -1,2 +1,47 @@
-<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<page-router-outlet></page-router-outlet>
+<RadSideDrawer drawerTransition="PushTransition">
+  <GridLayout tkDrawerContent rows="auto, auto, *, auto">
+    <GridLayout row="0" rows="auto" columns="*, 50" (tap)="toggleUserOptions()">
+      <StackLayout row="0" col="0" class="sidedrawer-header">
+        <Image [src]="(currentUser$ | async)?.photoURL" class="sidedrawer-avatar"></Image>
+        <Label [text]="(currentUser$ | async)?.displayName ? (currentUser$ | async)?.displayName : '- - -'" class="sidedrawer-header-text"></Label>
+        <Label [text]="(currentUser$ | async)?.email" class="sidedrawer-header-footnote"></Label>
+      </StackLayout>
+      <Label row="0" col="1" text="v"></Label>
+    </GridLayout>
+
+    <StackLayout row="1" class="hr-light m-10"></StackLayout>
+
+    <StackLayout *ngIf="!expandUserOptions" row="2">
+      <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="redirectAndCloseDrawer('inbox')">
+        <Label col="0" text="I" class="sidedrawer-icon"></Label>
+        <Label col="1" text="Inbox" class="p-l-10 sidedrawer-item"></Label>
+      </GridLayout>
+
+      <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="redirectAndCloseDrawer('today')">
+        <Label col="0" text="I" class="sidedrawer-icon"></Label>
+        <Label col="1" text="Today" class="p-l-10 sidedrawer-item"></Label>
+      </GridLayout>
+
+      <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="redirectAndCloseDrawer('seven-days')">
+        <Label col="0" text="I" class="sidedrawer-icon"></Label>
+        <Label col="1" text="Next 7 days" class="p-l-10 sidedrawer-item"></Label>
+      </GridLayout>
+    </StackLayout>
+
+    <StackLayout *ngIf="expandUserOptions" row="2">
+      <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="redirectAndCloseDrawer('settings')">
+        <Label col="0" text="I" class="sidedrawer-icon"></Label>
+        <Label col="1" text="Settings" class="p-l-10 sidedrawer-item"></Label>
+      </GridLayout>
+
+      <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="onLogout()">
+        <Label col="0" text="I" class="sidedrawer-icon"></Label>
+        <Label col="1" text="Log out" class="p-l-10 sidedrawer-item"></Label>
+      </GridLayout>
+    </StackLayout>
+  </GridLayout>
+
+  <StackLayout tkMainContent>
+    <page-router-outlet></page-router-outlet>
+  </StackLayout>
+</RadSideDrawer>

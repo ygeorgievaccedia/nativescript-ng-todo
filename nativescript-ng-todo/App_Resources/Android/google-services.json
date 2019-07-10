@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1039953472675",
+    "firebase_url": "https://nativescript-ng-todo.firebaseio.com",
+    "project_id": "nativescript-ng-todo",
+    "storage_bucket": "nativescript-ng-todo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039953472675:android:448e8af497ce2be2",
+        "android_client_info": {
+          "package_name": "org.nativescript.nativescriptngtodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039953472675-5582noeag9ge1chn4l8tbada87lh64b5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmDoI5rOX1Qv74KlCIZ0Fy4HchCenk9sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039953472675-5582noeag9ge1chn4l8tbada87lh64b5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
