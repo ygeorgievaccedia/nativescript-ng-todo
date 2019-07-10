@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { InboxModule } from './modules/inbox/inbox.module';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -18,9 +19,10 @@ import { AuthModule } from './modules/auth/auth.module';
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule,
         CoreModule,
-        AuthModule
+        AuthModule,
+        InboxModule,
+        AppRoutingModule,
     ],
     declarations: [
         AppComponent,

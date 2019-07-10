@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter, ChangeDetectionStrategy } from "@angular/core";
 import { RadDataFormComponent } from 'nativescript-ui-dataform/angular/dataform-directives';
 
-import { LoginUser } from '~/app/core/models/login-user';
+import { LoginUser } from '~/app/core/models/login-user.model';
 import { KeyboardHelperService } from '~/app/core/helpers/keyboard-helper.service';
 
 @Component({
@@ -26,6 +26,7 @@ export class LoginFormComponent {
 
         if (isValid) {
             this.keyboardHelperService.dismissSoftKeybaord();
+            this.login.emit(this.user);
         } else {
             const options = {
                 title: "Login Error",

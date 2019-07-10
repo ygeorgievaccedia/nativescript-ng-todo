@@ -1,7 +1,7 @@
 /* Add mobile styles for the component here.  */
-@import "../../../../../app-variables";
+@import '../../../../../app-variables';
 
-.login__button {
+.register__button {
     width: 200;
     text-align: center;
     margin-top: 20;
@@ -12,5 +12,5 @@
 }
 
 PropertyEditor {
-    font-size: $medium-size
+    font-size: $medium-size;
 }

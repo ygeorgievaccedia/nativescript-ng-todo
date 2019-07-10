@@ -1,11 +1,13 @@
 import { NgModule } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
-import { LoginFormComponent } from './modules/auth/components/login-form/login-form.component';
+
+import { InboxPageComponent } from './modules/inbox/pages/inbox-page/inbox-page.component';
+import { AuthGuard } from './modules/auth/services/auth.guard';
 
 const routes: Routes = [
-    { path: "", redirectTo: "/items", pathMatch: "full" },
-    { path: "items", component: LoginFormComponent },
+    { path: "", redirectTo: "/inbox", pathMatch: "full" },
+    { path: "inbox", component: InboxPageComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

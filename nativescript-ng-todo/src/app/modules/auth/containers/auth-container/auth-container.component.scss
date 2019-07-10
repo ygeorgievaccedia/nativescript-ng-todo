@@ -1,0 +1,10 @@
+/* Add mobile styles for the component here.  */
+@import "../../../../../app-variables";
+
+.header {
+    font-size: $extra-extra-large-size;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40;
+    color: $main-color;
+}

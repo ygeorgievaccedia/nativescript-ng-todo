@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { LoginUser } from "~/app/core/models/login-user";
+import { Component } from "@angular/core";
+import { LoginUser } from "~/app/core/models/login-user.model";
 
 @Component({
     selector: "ns-login-page",
     templateUrl: "./login-page.component.html",
-    styleUrls: ["./login-page.component.css"],
+    styleUrls: ["./login-page.component.scss"],
     moduleId: module.id
 })
 export class LoginPageComponent {
@@ -16,7 +16,5 @@ export class LoginPageComponent {
 
     public onLogin(loginUser: LoginUser) {
         // show loading
-
-
     }
 }
