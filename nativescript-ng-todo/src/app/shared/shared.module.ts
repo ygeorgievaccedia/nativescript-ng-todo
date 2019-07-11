@@ -7,12 +7,22 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoListEntryComponent } from './components/todo-list-entry/todo-list-entry.component';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { FriendlyDatePipe } from './pipes/friendly-date.pipe';
+import { DuedateModalComponent } from './modals/duedate-modal/duedate-modal.component';
+import { DatepickerModalComponent } from './modals/datepicker-modal/datepicker-modal.component';
+import { PrioritiesModalComponent } from './modals/priorities-modal/priorities-modal.component';
+import { LabelsModalComponent } from './modals/labels-modal/labels-modal.component';
 
 @NgModule({
     declarations: [
         TodoListComponent,
         TodoListEntryComponent,
-        AddTodoComponent
+        AddTodoComponent,
+        FriendlyDatePipe,
+        DuedateModalComponent,
+        DatepickerModalComponent,
+        PrioritiesModalComponent,
+        LabelsModalComponent
     ],
     imports: [
         NativeScriptCommonModule,
@@ -22,7 +32,18 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
     ],
     exports: [
         TodoListComponent,
-        AddTodoComponent
+        AddTodoComponent,
+        FriendlyDatePipe,
+        DuedateModalComponent,
+        DatepickerModalComponent,
+        PrioritiesModalComponent,
+        LabelsModalComponent,
+    ],
+    entryComponents: [
+        DuedateModalComponent,
+        DatepickerModalComponent,
+        PrioritiesModalComponent,
+        LabelsModalComponent,
     ],
     schemas: [NO_ERRORS_SCHEMA]
 })

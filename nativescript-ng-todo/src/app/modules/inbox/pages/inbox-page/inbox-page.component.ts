@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { screen } from "tns-core-modules/platform";
@@ -15,7 +15,7 @@ import { TodoService } from '~/app/core/services/todo.service';
     styleUrls: ["./inbox-page.component.scss"],
     moduleId: module.id
 })
-export class InboxPageComponent implements OnInit, AfterViewInit {
+export class InboxPageComponent implements OnInit, AfterViewInit, OnDestroy {
     public showAddTodo: boolean = false;
     public currentUser$ = this.store.select<any>("currentUser");
     public todos$ = this.store.select<Todo[]>("allTodos");
@@ -48,5 +48,9 @@ export class InboxPageComponent implements OnInit, AfterViewInit {
     public onDrawerButton() {
         const sidedrawer = <RadSideDrawer>app.getRootView();
         sidedrawer.showDrawer();
+    }
+
+    public ngOnDestroy() {
+        console.log("ngOnDestroy");
     }
 }

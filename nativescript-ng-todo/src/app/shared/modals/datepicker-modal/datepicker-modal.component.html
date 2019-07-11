@@ -1,0 +1,13 @@
+<StackLayout width="100%">
+  <DatePicker (loaded)="onPickerLoaded($event)"
+              (dayChange)="onDayChanged($event)"
+              (monthChange)="onMonthChanged($event)"
+              (yearChange)="onYearChanged($event)"
+              verticalAlignment="center">
+  </DatePicker>
+
+  <FlexboxLayout justifyContent="flex-end" class="actions" orientation="horizontal">
+    <Button text="CLOSE" class="close-button" (tap)="onCancel()"></Button>
+    <Button text="OK" class="close-button" (tap)="onSave()"></Button>
+  </FlexboxLayout>
+</StackLayout>

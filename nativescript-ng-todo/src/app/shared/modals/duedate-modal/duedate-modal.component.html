@@ -1,0 +1,24 @@
+<StackLayout width="100%" class="container">
+    <Label text="Due date" class="h2" marginLeft="20" marginTop="10" marginBottom="20"></Label>
+    <GridLayout rows="40, 40, 40, 40, 40" columns="30, *, auto" marginLeft="20" marginRight="20">
+        <Label [text]="'fa-calendar' | fonticon" class="far" row="0" col="0"></Label>
+        <Label text="Today" class="font-weight-bold" row="0" col="1" (tap)="onToday()"></Label>
+        <Label [text]="todayDate | friendlyDate: 'dayOfWeek'" row="0" col="2"></Label>
+
+        <Label [text]="'fa-sun' | fonticon" class="fas" row="1" col="0"></Label>
+        <Label text="Tommorow" class="font-weight-bold" row="1" col="1" (tap)="onTommorow()"></Label>
+        <Label [text]="tommorowDate | friendlyDate: 'dayOfWeek'" row="1" col="2"></Label>
+
+        <Label [text]="'fa-calendar-alt' | fonticon" class="far" row="2" col="0"></Label>
+        <Label text="Next week" class="font-weight-bold" row="2" col="1" (tap)="onNextWeek()"></Label>
+        <Label [text]="firstDayOfNextWeekDate | friendlyDate: 'dayOfWeek'" row="2" col="2"></Label>
+
+        <Label [text]="'fa-calendar-alt' | fonticon" class="far" row="3" col="0"></Label>
+        <Label text="Pick a date" class="font-weight-bold" row="3" col="1" (tap)="onPickADate()"></Label>
+
+        <Label [text]="'fa-calendar-times' | fonticon" class="far" row="4" col="0"></Label>
+        <Label text="No date" class="font-weight-bold" row="4" col="1" (tap)="onNoDate()"></Label>
+    </GridLayout>
+    <StackLayout class="hr-light"></StackLayout>
+    <Button text="CLOSE" class="close-button" (tap)="onCancel()"></Button>
+</StackLayout>

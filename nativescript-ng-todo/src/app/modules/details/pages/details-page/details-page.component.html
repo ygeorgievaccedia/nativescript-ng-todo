@@ -4,4 +4,12 @@
   <ActionItem (tap)="onDelete()" text="Delete" ios.systemIcon="16" ios.position="right" android.position="popup"></ActionItem>
 </ActionBar>
 
-<ns-details-form [todo]="todo"></ns-details-form>
+<ng-container *ngIf="todo$ | async as Todo; else spinner">
+  <ns-details-form [todo]="todo$ | async" (save)="onSave($event)" (delete)="onDelete()"></ns-details-form>
+</ng-container>
+
+<ng-template #spinner>
+  <FlexboxLayout justifyContent="center" alignItems="center">
+    <ActivityIndicator #activityIndicator busy="true" class="activity-indicator"></ActivityIndicator>
+  </FlexboxLayout>
+</ng-template>

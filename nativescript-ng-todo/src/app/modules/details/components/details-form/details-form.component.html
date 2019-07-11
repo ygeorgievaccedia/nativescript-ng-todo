@@ -18,17 +18,17 @@
       <Label [text]="'fa-calendar' | fonticon" class="far options__icon m-b-25 m-r-10" row="0" col="0"></Label>
       <StackLayout row="0" col="1" class="m-b-25" (tap)="onOpenDuedataModal()">
         <Label text="Due date" class="font-weight-bold"></Label>
-        <Label [text]="todo.dueDate ? 'Due ' + todo.dueDate : 'No due date'"></Label>
+        <Label [text]="todo.dueDate ? 'Due ' + (todo.dueDate | friendlyDate:'due') : 'No due date'"></Label>
       </StackLayout>
 
       <Label [text]="'fa-flag' | fonticon" class="far options__icon m-b-25 m-r-10" row="1" col="0"></Label>
-      <StackLayout row="1" col="1" class="m-b-25" (tap)="onOpenDuedataModal()">
+      <StackLayout row="1" col="1" class="m-b-25" (tap)="onOpenPrioritiesModal()">
         <Label text="Priority" class="font-weight-bold"></Label>
         <Label [text]="'Priority ' + todo.priority"></Label>
       </StackLayout>
 
       <Label [text]="'fa-tags' | fonticon" class="fas options__icon m-b-25 m-r-10" row="2" col="0"></Label>
-      <StackLayout row="2" col="1" class="m-b-25" (tap)="onOpenDuedataModal()">
+      <StackLayout row="2" col="1" class="m-b-25" (tap)="onOpenLabelsModal()">
         <Label text="Labels" class="font-weight-bold"></Label>
         <Label [text]="todo.labels?.length > 0 ? todo.labels.join(', ') : 'No labels'"></Label>
       </StackLayout>
@@ -54,7 +54,7 @@
 
     <StackLayout alignSelf="flex-end" class="remove-todo">
       <GridLayout columns="*, 40" rows="*">
-        <Label [text]="'Modified ' + todo.modifiedOn" class="remove-todo__text" row="0" col="0"></Label>
+        <Label [text]="'Modified ' + (todo.modifiedOn | friendlyDate:'friendly')" class="remove-todo__text" row="0" col="0"></Label>
         <Label (tap)="onDelete()" [text]="'fa-trash-alt' | fonticon" class="far remove-todo__icon" row="0" col="1"></Label>
       </GridLayout>
     </StackLayout>

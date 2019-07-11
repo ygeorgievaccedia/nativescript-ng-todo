@@ -29,8 +29,16 @@ export class TodoRepositoryService {
         }
     }
 
-    public getTodoDetails() {
+    public getTodoDetails(
+        todoId: string,
+        errorHandler: (error: any) => any,
+        successHandler: (querySnapshot: firestore.DocumentSnapshot) => void) {
 
+        this.todoRef
+            .doc(todoId)
+            .get()
+            .then(successHandler)
+            .catch(errorHandler);
     }
 
     public addTodo(
@@ -56,7 +64,15 @@ export class TodoRepositoryService {
             .catch(errorHandler);
     }
 
-    public deleteTodo() {
+    public deleteTodo(
+        todoId: string,
+        errorHandler: (error: any) => any,
+        successHandler: () => void) {
 
+        this.todoRef
+            .doc(todoId)
+            .delete()
+            .then(successHandler)
+            .catch(errorHandler);
     }
 }

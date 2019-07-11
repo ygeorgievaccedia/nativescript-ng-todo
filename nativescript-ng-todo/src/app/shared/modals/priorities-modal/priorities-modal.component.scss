@@ -1,0 +1,28 @@
+/* Add mobile styles for the component here.  */
+@import "../../../../app-variables";
+
+.close-button {
+    z-index: 0;
+    color: $main-color;
+    background-color: white;
+}
+
+.container {
+    font-size: $medium-size;
+}
+
+.priority--one {
+    color: $error-color;
+}
+
+.priority--two {
+    color: $main-color;
+}
+
+.priority--three {
+    color: blue;
+}
+
+.priority--four {
+    color: gray;
+}

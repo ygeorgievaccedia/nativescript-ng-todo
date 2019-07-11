@@ -4,6 +4,7 @@ import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 
 import { DetailsPageComponent } from './pages/details-page/details-page.component';
 import { DetailsFormComponent } from './components/details-form/details-form.component';
+import { SharedModule } from '~/app/shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import { DetailsFormComponent } from './components/details-form/details-form.com
     imports: [
         NativeScriptCommonModule,
         TNSFontIconModule,
+        SharedModule,
     ],
     exports: [
         DetailsPageComponent

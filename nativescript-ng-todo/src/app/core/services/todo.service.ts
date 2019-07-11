@@ -32,7 +32,19 @@ export class TodoService {
         });
     }
 
-    public getTodoDetails() {}
+    public getTodoDetails(todoId: string) {
+        this.repository.getTodoDetails(todoId, this.errorService.handleFirestoreError, (docSnap: firestore.DocumentSnapshot) => {
+            this.ngZone.run(() => {
+                if (docSnap.exists) {
+                    const todo: Todo = <Todo>docSnap.data();
+                    todo.id = docSnap.id;
+                    this.store.set("selectedTodo", todo);
+                } else {
+                    this.loggerService.error("The searched todo doesn't exists!");
+                }
+            })
+        })
+    }
 
     public addTodo(todo: Todo) {
         if (!todo.priority) {
@@ -46,7 +58,7 @@ export class TodoService {
         todo.modifiedOn = new Date();
 
         this.repository.addTodo(todo, this.errorService.handleFirestoreError, () => {
-            this.loggerService.log("TodoService#updateTodo, Added todo");
+            this.loggerService.log("TodoService#addTodo, Added todo");
         });
     }
 
@@ -57,5 +69,9 @@ export class TodoService {
         })
     }
 
-    public deleteTodo() {}
+    public deleteTodo(todoId: string) {
+        this.repository.deleteTodo(todoId, this.errorService.handleFirestoreError, () => {
+            this.loggerService.log("TodoService#deleteTodo, Deleted todo");
+        })
+    }
 }
