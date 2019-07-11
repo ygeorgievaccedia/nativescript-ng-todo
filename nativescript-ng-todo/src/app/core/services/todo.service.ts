@@ -34,7 +34,21 @@ export class TodoService {
 
     public getTodoDetails() {}
 
-    public addTodo() {}
+    public addTodo(todo: Todo) {
+        if (!todo.priority) {
+            todo.priority = 3; //default value
+        }
+        if (!todo.project) {
+            todo.project = "Inbox";
+        }
+
+        todo.createdOn = new Date();
+        todo.modifiedOn = new Date();
+
+        this.repository.addTodo(todo, this.errorService.handleFirestoreError, () => {
+            this.loggerService.log("TodoService#updateTodo, Added todo");
+        });
+    }
 
     public updateTodo(todo: Todo) {
         todo.modifiedOn = new Date();

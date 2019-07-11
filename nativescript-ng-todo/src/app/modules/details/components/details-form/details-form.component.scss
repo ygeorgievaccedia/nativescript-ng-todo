@@ -1,0 +1,53 @@
+/* Add mobile styles for the component here.  */
+@import "../../../../../app-variables";
+
+.header {
+    padding-left: 70;
+    background-color: $main-color;
+    color: white;
+}
+.header__item {
+    margin-bottom: 20;
+}
+.header__title {
+    font-size: $medium-size;
+    font-weight: bold;
+}
+.header__text {
+    font-size: $extra-large-size;
+    border-color: white;
+}
+
+.options {
+    padding: 10;
+}
+.options__icon {
+    font-size: $extra-large-size;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.remove-todo {
+    height: 50;
+    width: 100%;
+    border-top-color: lightgray;
+    border-top-width: 1;
+}
+.remove-todo__icon {
+    text-align: center;
+    vertical-align: middle;
+    font-size: $large-size;
+    color: $error-color;
+}
+.remove-todo__text{
+    font-size: $medium-size;
+    margin-left: 10;
+    vertical-align: middle;
+}
+
+.save-button {
+    font-size: $large-size;
+    border-radius: 100;
+    background-color: lightblue;
+    color: $main-color;
+}

@@ -1,1 +1,30 @@
 /* Add mobile styles for the component here.  */
+@import "../../../../app-variables";
+
+.add-todo {
+    border-top-color: $main-color;
+    border-top-width: 1;
+    background-color: white;
+    padding: 10;
+}
+.add-todo__input {
+    width: 100%;
+}
+.add-todo__send {
+    text-align: center;
+    vertical-align: middle;
+    font-size: $extra-large-size;
+    background-size: white;
+    z-index: 0;
+}
+.add-todo__send--valid {
+    color: $main-color;
+}
+
+.options {
+    margin-top:  20;
+}
+.options__icon {
+    font-size: $extra-large-size;
+    margin-right: 30;
+}

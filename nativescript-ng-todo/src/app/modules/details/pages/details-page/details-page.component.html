@@ -1,0 +1,7 @@
+<ActionBar class="action-bar">
+  <NavigationButton text="Back" (tap)="goBack()"></NavigationButton>
+  <Label class="action-bar-title" text="Todo Details"></Label>
+  <ActionItem (tap)="onDelete()" text="Delete" ios.systemIcon="16" ios.position="right" android.position="popup"></ActionItem>
+</ActionBar>
+
+<ns-details-form [todo]="todo"></ns-details-form>

@@ -6,11 +6,11 @@
 
 <AbsoluteLayout>
     <StackLayout width="100%" height="100%">
-        <GridLayout row="*, 120" columns="*">
+        <GridLayout rows="*, 120" columns="*">
             <ns-todo-list row="0" col="0" [todoItems]="todos$ | async"></ns-todo-list>
 
             <StackLayout row="1" col="0" *ngIf="showAddTodo">
-              <ns-add-todo></ns-add-todo>
+              <ns-add-todo (addTodo)="onAddTodo($event)"></ns-add-todo>
             </StackLayout>
         </GridLayout>
     </StackLayout>

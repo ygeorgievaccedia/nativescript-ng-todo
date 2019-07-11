@@ -8,6 +8,7 @@ import { AppComponent } from "./app.component";
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { InboxModule } from './modules/inbox/inbox.module';
+import { DetailsModule } from './modules/details/details.module';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -28,6 +29,7 @@ import { InboxModule } from './modules/inbox/inbox.module';
         CoreModule,
         AuthModule,
         InboxModule,
+        DetailsModule,
         AppRoutingModule,
     ],
     declarations: [

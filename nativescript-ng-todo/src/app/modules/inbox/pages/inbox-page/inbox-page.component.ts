@@ -36,6 +36,11 @@ export class InboxPageComponent implements OnInit, AfterViewInit {
         AbsoluteLayout.setLeft(button, screen.mainScreen.widthDIPs - Number(button.width) - 20);
     }
 
+    public onAddTodo(todo: Todo) {
+        this.todoService.addTodo(todo);
+        this.showAddTodo = false;
+    }
+
     public onAddTodoAction() {
         this.showAddTodo = true;
     }

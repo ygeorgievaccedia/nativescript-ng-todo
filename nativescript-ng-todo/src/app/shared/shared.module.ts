@@ -1,5 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -15,6 +16,7 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
     ],
     imports: [
         NativeScriptCommonModule,
+        NativeScriptFormsModule,
         NativeScriptUIListViewModule,
         TNSFontIconModule
     ],

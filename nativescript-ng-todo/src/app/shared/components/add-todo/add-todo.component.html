@@ -1,14 +1,20 @@
 <GridLayout class="add-todo" width="100%" height="120" rows="50, 70" columns="*, 50">
-    <StackLayout>
-        <TextField></TextField>
+    <StackLayout row="0" col="0" orientation="horizontal">
+        <TextField id="todo-title" [(ngModel)]="todo.title" #title="ngModel" hint="e.g. lunch on Monday at noon" class="add-todo__input" required></TextField>
     </StackLayout>
 
-    <FlexboxLayout class="options">
-        <Label [text]="'fa-calendar' | fonticon" class="far option__icon"></Label>
-        <Label [text]="'fa-flag' | fonticon" class="far option__icon"></Label>
-        <Label [text]="'fa-tags' | fonticon" class="fas option__icon"></Label>
-        <Label [text]="'fa-stream' | fonticon" class="fas option__icon"></Label>
-        <Label [text]="'fa-comment' | fonticon" class="far option__icon"></Label>
-        <Label [text]="'fa-clock' | fonticon" class="far option__icon"></Label>
+    <Button [text]="'fa-external-link-square-alt' | fonticon"
+            [ngClass]="{'add-todo__send--valid': title.valid}"
+            (tap)="onAddTodo()"
+            class="fas add-todo__send"
+            row="0" col="2"></Button>
+
+    <FlexboxLayout justifyContent="space-around" row="1" col="0" colSpn="2" class="options">
+        <Label [text]="'fa-calendar' | fonticon" class="far options__icon"></Label>
+        <Label [text]="'fa-flag' | fonticon" class="far options__icon"></Label>
+        <Label [text]="'fa-tags' | fonticon" class="fas options__icon"></Label>
+        <Label [text]="'fa-stream' | fonticon" class="fas options__icon"></Label>
+        <Label [text]="'fa-comment' | fonticon" class="far options__icon"></Label>
+        <Label [text]="'fa-clock' | fonticon" class="far options__icon"></Label>
     </FlexboxLayout>
 </GridLayout>

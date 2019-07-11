@@ -33,8 +33,15 @@ export class TodoRepositoryService {
 
     }
 
-    public addTodo() {
+    public addTodo(
+        todo: Todo,
+        errorHandler: (error: any) => any,
+        successHandler: () => void) {
 
+        this.todoRef
+            .add(todo)
+            .then(successHandler)
+            .catch(errorHandler);
     }
 
     public updateTodo(

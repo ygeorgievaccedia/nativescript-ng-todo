@@ -5,6 +5,7 @@ import { RadListViewComponent } from 'nativescript-ui-listview/angular/listview-
 import { Todo } from '~/app/core/models/todo.model';
 import { LoggerService } from '~/app/core/services/logger.service';
 import { TodoService } from '~/app/core/services/todo.service';
+import { NavigationService } from '~/app/core/services/navigation.service';
 
 @Component({
     selector: "ns-todo-list",
@@ -18,7 +19,10 @@ export class TodoListComponent {
 
     @ViewChild("todoListView", { read: RadListViewComponent, static: false }) todoListView: RadListViewComponent;
 
-    constructor(private readonly todoService: TodoService, private readonly loggerService: LoggerService) {}
+    constructor(
+        private readonly todoService: TodoService,
+        private readonly loggerService: LoggerService,
+        private readonly navigationService: NavigationService) {}
 
     public onLeftSwipeTap(args: ListViewEventData) {
         this.todoListView.listView.notifySwipeToExecuteFinished();
@@ -29,7 +33,7 @@ export class TodoListComponent {
     }
 
     public onItemTap(id: string){
-        // navigate to todo details
+        this.navigationService.navigate(["todo-details", id], { transition: { name: "slideLeft" } });
     }
 
     public onToggleComplete(todo: Todo) {
