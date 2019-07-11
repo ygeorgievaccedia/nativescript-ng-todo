@@ -1,0 +1,24 @@
+<RadListView #todoListView [items]="todoItems" swipeActions="true">
+  <ng-template tkListItemTemplate let-item="item">
+    <StackLayout orientation="vertical">
+      <ns-todo-list-entry [todo]="item"
+                          (itemTap)="onItemTap($event)"
+                          (toggleComplete)="onToggleComplete($event)"
+                          (toggleFavourite)="onToggleFavourite($event)"></ns-todo-list-entry>
+      <StackLayout height="1" width="95%" backgroundColor="LightGray"></StackLayout>
+    </StackLayout>
+  </ng-template>
+
+  <GridLayout *tkListItemSwipeTemplate columns="auto, *, auto" rows="*, 2">
+    <StackLayout col="0" row="0" (tap)="onLeftSwipeTap($event)">
+      <Label text="Today"></Label>
+    </StackLayout>
+
+    <StackLayout col="2" row="0" (tap)="onRightSwipeTap($event)">
+      <Label text="Delete"></Label>
+    </StackLayout>
+  </GridLayout>
+
+  <ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Default">
+  </ListViewLinearLayout>
+</RadListView>

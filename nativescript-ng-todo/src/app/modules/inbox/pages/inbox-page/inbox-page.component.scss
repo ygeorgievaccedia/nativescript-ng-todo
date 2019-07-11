@@ -1,1 +1,23 @@
 /* Add mobile styles for the component here.  */
+@import "../../../../../app-variables";
+
+.action-bar {
+    background-color: $main-color;
+    border-color: $main-color;
+    color: white;
+    z-index: 0;
+}
+
+.add-todo-action {
+    background-color: $main-color;
+}
+.add-todo-action__icon {
+    text-align: center;
+    vertical-align: middle;
+    font-size: $large-size;
+    color: white;
+}
+
+.hidden {
+    visibility: hidden;
+}

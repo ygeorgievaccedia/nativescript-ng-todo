@@ -1,0 +1,33 @@
+/* Add mobile styles for the component here.  */
+@import "../../../../app-variables";
+
+.todo {
+    padding: 10 10;
+    height: 100%;
+    background-color: white;
+}
+.todo__complete {
+    text-align: left;
+    vertical-align: middle;
+    font-size: $extra-extra-large-size;
+}
+.todo__favourite {
+    text-align: center;
+    vertical-align: middle;
+    font-size: $large-size;
+}
+.todo__title {
+    font-size: $medium-size;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.todo__project {
+    font-size: $small-size;
+    font-weight: normal;
+}
+.todo--completed {
+    color: green;
+}
+.todo--favourite {
+    color: $main-color;
+}

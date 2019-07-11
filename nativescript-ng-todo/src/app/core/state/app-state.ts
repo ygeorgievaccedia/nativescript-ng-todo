@@ -1,10 +1,12 @@
 import * as firebase from "nativescript-plugin-firebase";
 
+import { Todo } from '../models/todo.model';
+
 export type StateKey = "allTodos" | "selectedTodo" | "currentUser" | "showSpinner";
 
 export interface State {
-    allTodos: any[];
-    selectedTodo: any;
+    allTodos: Todo[];
+    selectedTodo: Todo;
     currentUser: firebase.User;
     showSpinner: boolean;
     [key: string]: any;

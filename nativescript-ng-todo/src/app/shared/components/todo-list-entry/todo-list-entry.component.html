@@ -1,0 +1,14 @@
+<GridLayout columns="50, *, 40" rows="20, 20" class="todo">
+  <StackLayout (tap)="onToggleComplete()" row="0" col="0" rowSpan="2" class="todo__complete">
+    <Label *ngIf="todo.isCompleted" [text]="'fa-check-circle' | fonticon" class="fas todo--completed"></Label>
+    <Label *ngIf="!todo.isCompleted" [text]="'fa-circle' | fonticon" class="far"></Label>
+  </StackLayout>
+
+  <Label (tap)="onTapDetails()" [text]="todo.title" class="todo__title" row="0" col="1"></Label>
+  <Label (tap)="onTapDetails()" [text]="todo.project" class="todo__project" row="1" col="1"></Label>
+
+  <StackLayout row="0" col="2" rowSpan="2" class="todo__favourite">
+    <Label *ngIf="todo.isFavourite" [text]="'fa-star' | fonticon" class="fas todo--favourite" (tap)="onToggleFavourite()"></Label>
+    <Label *ngIf="!todo.isFavourite" [text]="'fa-star' | fonticon" class="far" (tap)="onToggleFavourite()"></Label>
+  </StackLayout>
+</GridLayout>

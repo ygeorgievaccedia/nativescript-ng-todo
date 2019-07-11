@@ -1,3 +1,27 @@
-<StackLayout>
-    <Label [text]="(currentUser$ | async)?.email"></Label>
-</StackLayout>
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButton()"></NavigationButton>
+  <ActionItem icon="res://menu" android:visibility="collapsed" ios.position="left" (tap)="onDrawerButton()"></ActionItem>
+  <Label class="action-bar-title" text="Inbox"></Label>
+</ActionBar>
+
+<AbsoluteLayout>
+    <StackLayout width="100%" height="100%">
+        <GridLayout row="*, 120" columns="*">
+            <ns-todo-list row="0" col="0" [todoItems]="todos$ | async"></ns-todo-list>
+
+            <StackLayout row="1" col="0" *ngIf="showAddTodo">
+              <ns-add-todo></ns-add-todo>
+            </StackLayout>
+        </GridLayout>
+    </StackLayout>
+
+    <Border #addTodoButton
+            (tap)="onAddTodoAction()"
+            [ngClass]="{ hidden: showAddTodo }"
+            class="add-todo-action"
+            width="50"
+            height="50"
+            cornerRadius="100">
+      <Label [text]="'fa-plus' | fonticon" class="fas add-todo-action__icon"></Label>
+    </Border>
+</AbsoluteLayout>
