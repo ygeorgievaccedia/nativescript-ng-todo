@@ -1,0 +1,44 @@
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButton()"></NavigationButton>
+  <ActionItem icon="res://menu" android:visibility="collapsed" ios.position="left" (tap)="onDrawerButton()"></ActionItem>
+  <Label class="action-bar-title" text="Account"></Label>
+</ActionBar>
+
+<StackLayout>
+  <GridLayout rows="auto" columns="*, 60">
+    <StackLayout row="0" col="0" orientation="vertical" class="account" (tap)="onChangeAvatar()">
+      <Label text="Avatar" class="account__title"></Label>
+      <Label text="Change your profile picture" class="account__details"></Label>
+    </StackLayout>
+
+    <Image row="0" col="1" *ngIf="(currentUser$ | async)?.photoURL" [src]="(currentUser$ | async)?.photoURL" class="avatar"></Image>
+    <Label row="0" col="1" *ngIf="!(currentUser$ | async)?.photoURL" [text]="'fa-user-circle' | fonticon" class="fas avatar avatar--no-photo"></Label>
+  </GridLayout>
+  <StackLayout class="hr-light m-5"></StackLayout>
+
+  <StackLayout orientation="vertical" class="account" (tap)="onChangeDisplayName()">
+    <Label text="Name" class="account__title"></Label>
+    <Label [text]="(currentUser$ | async)?.displayName ? (currentUser$ | async)?.displayName : '- - -'" class="account__details"></Label>
+  </StackLayout>
+  <StackLayout class="hr-light m-5"></StackLayout>
+
+  <StackLayout orientation="vertical" class="account" (tap)="onChangeEmail()">
+    <Label text="Email" class="account__title"></Label>
+    <Label [text]="(currentUser$ | async)?.email ? (currentUser$ | async)?.email : '- - -'" class="account__details"></Label>
+  </StackLayout>
+  <StackLayout class="hr-light m-5"></StackLayout>
+
+  <StackLayout orientation="vertical" class="account" (tap)="onChangePassword()">
+    <Label text="Password" class="account__title"></Label>
+    <Label text="Change your password" class="account__details"></Label>
+  </StackLayout>
+  <StackLayout class="hr-light m-5"></StackLayout>
+
+  <StackLayout orientation="horizontal" class="account" (tap)="onDeleteAccount()">
+    <Label [text]="'fa-exclamation-triangle' | fonticon" class="fas delete__icon"></Label>
+    <StackLayout orientation="vertical">
+      <Label text="Delete account" class="account__title"></Label>
+      <Label textWrap="true" class="account__details" text="Deleting your account is permanent. All your data will be wiped out immediatly and you won't be able to get it back."></Label>
+  </StackLayout>
+  <StackLayout class="hr-light m-5"></StackLayout>
+</StackLayout>

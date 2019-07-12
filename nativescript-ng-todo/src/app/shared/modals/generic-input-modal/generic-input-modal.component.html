@@ -1,0 +1,11 @@
+<StackLayout width="100%" minWidth="350">
+  <Label [text]="title" class="h2" marginLeft="20" marginTop="10" marginBottom="20"></Label>
+
+  <TextField *ngIf="!isTextView" [(ngModel)]="text" [secure]="isPassword" class="generic__input"></TextField>
+  <TextView *ngIf="isTextView" [(ngModel)]="text" class="generic__input"></TextView>
+
+  <FlexboxLayout justifyContent="flex-end" class="actions" orientation="horizontal">
+    <Button text="CLOSE" class="close-button" (tap)="onClose()"></Button>
+    <Button text="SAVE" class="close-button" (tap)="onSave()"></Button>
+  </FlexboxLayout>
+</StackLayout>

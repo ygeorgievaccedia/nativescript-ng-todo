@@ -1,1 +1,26 @@
 /* Add mobile styles for the component here.  */
+@import "../../../../app-variables";
+
+.add-today {
+    vertical-align: middle;
+    background-color: blue;
+    height: 100%
+}
+.add-today__action {
+    text-align: center;
+    width: 100;
+    font-weight: bold;
+    color: white;
+}
+
+.delete {
+    vertical-align: middle;
+    background-color: $error-color;
+    height: 100%;
+}
+.delete__action {
+    text-align: center;
+    width: 100;
+    font-weight: bold;
+    color: white;
+}

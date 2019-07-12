@@ -12,6 +12,8 @@ import { DuedateModalComponent } from './modals/duedate-modal/duedate-modal.comp
 import { DatepickerModalComponent } from './modals/datepicker-modal/datepicker-modal.component';
 import { PrioritiesModalComponent } from './modals/priorities-modal/priorities-modal.component';
 import { LabelsModalComponent } from './modals/labels-modal/labels-modal.component';
+import { ParentModalComponent } from './modals/parent-modal/parent-modal.component';
+import { GenericInputModalComponent } from './modals/generic-input-modal/generic-input-modal.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +24,9 @@ import { LabelsModalComponent } from './modals/labels-modal/labels-modal.compone
         DuedateModalComponent,
         DatepickerModalComponent,
         PrioritiesModalComponent,
-        LabelsModalComponent
+        LabelsModalComponent,
+        ParentModalComponent,
+        GenericInputModalComponent
     ],
     imports: [
         NativeScriptCommonModule,
@@ -38,12 +42,16 @@ import { LabelsModalComponent } from './modals/labels-modal/labels-modal.compone
         DatepickerModalComponent,
         PrioritiesModalComponent,
         LabelsModalComponent,
+        ParentModalComponent,
+        GenericInputModalComponent,
     ],
     entryComponents: [
         DuedateModalComponent,
         DatepickerModalComponent,
         PrioritiesModalComponent,
         LabelsModalComponent,
+        ParentModalComponent,
+        GenericInputModalComponent,
     ],
     schemas: [NO_ERRORS_SCHEMA]
 })

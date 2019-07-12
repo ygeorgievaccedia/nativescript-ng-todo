@@ -1,0 +1,18 @@
+<StackLayout width="100%" class="modal-container">
+  <Label text="Parent" class="h2" marginLeft="20" marginTop="10" marginBottom="20"></Label>
+
+  <ListView [items]="todos$ | async" marginLeft="20" marginRight="20">
+    <ng-template let-todo="item">
+      <StackLayout class="parent__item" (tap)="onSelectParent(todo)">
+        <Label [text]="todo.title" [ngClass]="{'parent__item--active': selectedParent?.title == todo.title}"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+
+  <StackLayout class="hr-light"></StackLayout>
+
+  <FlexboxLayout justifyContent="flex-end" class="actions" orientation="horizontal">
+    <Button text="CLOSE" class="close-button" (tap)="onClose()"></Button>
+    <Button text="NO PARENT" class="close-button" (tap)="onNoParent()"></Button>
+  </FlexboxLayout>
+</StackLayout>

@@ -26,6 +26,13 @@ refer to http://docs.nativescript.org/ui/theme.
     font-weight: 900;
 }
 
+.action-bar {
+    background-color:  $main-color;
+    border-color: $main-color;
+    color: white;
+    z-index: 0;
+}
+
 .activity-indicator {
     height: 100;
     width: 100;
@@ -83,4 +90,24 @@ refer to http://docs.nativescript.org/ui/theme.
     margin: 10;
     font-size: $extra-large-size;
     color: $normal-text-color;
+}
+
+.no-items {
+    vertical-align: middle;
+    text-align: center;
+}
+.no-items__header {
+    font-size: $large-size
+}
+.no-items__text {
+    font-size: $medium-size;
+}
+
+.modal-container {
+    font-size: $medium-size;
+}
+.close-button {
+    z-index: 0;
+    color: $main-color;
+    background-color: white;
 }

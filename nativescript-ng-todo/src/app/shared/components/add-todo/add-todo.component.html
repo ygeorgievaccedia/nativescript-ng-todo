@@ -1,20 +1,47 @@
 <GridLayout class="add-todo" width="100%" height="120" rows="50, 70" columns="*, 50">
-    <StackLayout row="0" col="0" orientation="horizontal">
-        <TextField id="todo-title" [(ngModel)]="todo.title" #title="ngModel" hint="e.g. lunch on Monday at noon" class="add-todo__input" required></TextField>
+  <StackLayout row="0" col="0" orientation="horizontal">
+    <StackLayout *ngIf="todo.dueDate" class="selected-option" orientation="horizontal" (tap)="todo.dueDate = undefined">
+      <Label [text]="'fa-calendar' | fonticon" class="far selected-option__icon"></Label>
+      <Label [text]="todo.dueDate | friendlyDate" class="selected-option__text"></Label>
     </StackLayout>
 
-    <Button [text]="'fa-external-link-square-alt' | fonticon"
-            [ngClass]="{'add-todo__send--valid': title.valid}"
-            (tap)="onAddTodo()"
-            class="fas add-todo__send"
-            row="0" col="2"></Button>
+    <StackLayout *ngIf="todo.priority" class="selected-option" orientation="horizontal" (tap)="todo.priority = undefined">
+      <Label [text]="'fa-flag' | fonticon" class="far selected-option__icon"></Label>
+      <Label [text]="todo.priority" class="selected-option__text"></Label>
+    </StackLayout>
 
-    <FlexboxLayout justifyContent="space-around" row="1" col="0" colSpn="2" class="options">
-        <Label [text]="'fa-calendar' | fonticon" class="far options__icon"></Label>
-        <Label [text]="'fa-flag' | fonticon" class="far options__icon"></Label>
-        <Label [text]="'fa-tags' | fonticon" class="fas options__icon"></Label>
-        <Label [text]="'fa-stream' | fonticon" class="fas options__icon"></Label>
-        <Label [text]="'fa-comment' | fonticon" class="far options__icon"></Label>
-        <Label [text]="'fa-clock' | fonticon" class="far options__icon"></Label>
-    </FlexboxLayout>
+    <StackLayout *ngIf="todo.labels" class="selected-option" orientation="horizontal" (tap)="todo.labels = undefined">
+      <Label [text]="'fa-tags' | fonticon" class="fas selected-option__icon"></Label>
+      <Label [text]="todo.labels.length" class="selected-option__text"></Label>
+    </StackLayout>
+
+    <StackLayout *ngIf="todo.parent" class="selected-option" orientation="horizontal" (tap)="todo.parent = undefined">
+      <Label [text]="'fa-stream' | fonticon" class="fas selected-option__icon"></Label>
+    </StackLayout>
+
+    <StackLayout *ngIf="todo.description" class="selected-option" orientation="horizontal" (tap)="todo.description = undefined">
+      <Label [text]="'fa-comment' | fonticon" class="far selected-option__icon"></Label>
+    </StackLayout>
+
+    <StackLayout *ngIf="todo.reminder" class="selected-option" orientation="horizontal" (tap)="todo.reminder = undefined">
+      <Label [text]="'fa-clock' | fonticon" class="far selected-option__icon"></Label>
+    </StackLayout>
+
+    <TextField id="todo-title" [(ngModel)]="todo.title" #title="ngModel" hint="e.g. lunch on Monday at noon" class="add-todo__input" required></TextField>
+  </StackLayout>
+
+  <Button [isEnabled]="title.valid"
+          [text]="'fa-external-link-square-alt' | fonticon"
+          [ngClass]="{ 'add-todo__send--valid': title.valid }"
+          (tap)="onAddTodo()"
+          class="fas add-todo__send" row="0" col="2"></Button>
+
+  <FlexboxLayout justifyContent="space-around" row="1" col="0" colSpan="2" class="options">
+    <Label [text]="'fa-calendar' | fonticon" class="far options__icon" [ngClass]="{ 'option__icon--active': todo.dueDate }" (tap)="onOpenDuedateModal()"></Label>
+    <Label [text]="'fa-flag' | fonticon" class="far options__icon" [ngClass]="{ 'option__icon--active': todo.priority }" (tap)="onOpenPrioritiesModal()"></Label>
+    <Label [text]="'fa-tags' | fonticon" class="fas options__icon" [ngClass]="{ 'option__icon--active': todo.labels }" (tap)="onOpenLabelsModal()"></Label>
+    <Label [text]="'fa-stream' | fonticon" class="fas options__icon" [ngClass]="{ 'option__icon--active': todo.parent }" (tap)="onOpenParentModal()"></Label>
+    <Label [text]="'fa-comment' | fonticon" class="far options__icon" [ngClass]="{ 'option__icon--active': todo.description }" (tap)="onOpenDescriptionModal()"></Label>
+    <Label [text]="'fa-clock' | fonticon" class="far options__icon" [ngClass]="{ 'option__icon--active': todo.reminder }" (tap)="onOpenReminderModal()"></Label>
+  </FlexboxLayout>
 </GridLayout>

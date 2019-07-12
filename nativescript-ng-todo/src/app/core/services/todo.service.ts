@@ -18,6 +18,16 @@ export class TodoService {
         private readonly ngZone: NgZone
     ) {}
 
+    public getFilteredTodos(searchFilter) {
+        if (!searchFilter) {
+            this.store.set("searchedTodos", []);
+            return;
+        }
+
+        const todos = this.store.value.allTodos.filter(t => t.title.indexOf(searchFilter) != -1);
+        this.store.set("searchedTodos", todos);
+    }
+
     public getTodosList() {
         this.repository.getTodoList(this.errorService.handleFirestoreError, (snapshot: firestore.QuerySnapshot) => {
             this.ngZone.run(() => {

@@ -49,6 +49,21 @@ export class FriendlyDatePipe implements PipeTransform {
             return this.weekdays[date.getDay()].substr(0, 3);
         }
 
+        if (type === "weekDayMonthDay") {
+            // Fri, Jul 21
+            return `${this.weekdays[date.getDay()].substr(0, 3)}, ${this.monthNames[date.getMonth()]} ${date.getDate()}`;
+        }
+
+        if (type === "fullDayOfWeek") {
+            // Friday
+            return this.weekdays[date.getDay()];
+        }
+
+        if (type === "monthDay") {
+            // Jul 21
+            return `${this.monthNames[date.getMonth()]} ${date.getDate()}`;
+        }
+
         return date;
     }
 

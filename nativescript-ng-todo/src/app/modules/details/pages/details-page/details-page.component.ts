@@ -30,7 +30,8 @@ export class DetailsPageComponent implements OnInit {
     }
 
     public onSave(todo: Todo) {
-
+        this.todoService.updateTodo(todo);
+        this.goBack();
     }
 
     public async onDelete() {

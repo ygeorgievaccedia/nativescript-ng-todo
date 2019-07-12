@@ -1,0 +1,20 @@
+<StackLayout>
+    <GridLayout rows="auto" columns="*, 40" padding="10">
+        <TextField id="searchField"
+                   [colSpan]="!searchFilter ? 2 : 1"
+                   [text]="searchFilter"
+                   (textChange)="onSearchChange($event)"
+                   hint="Search"
+                   class="search__text"
+                   row="0" col="0" ></TextField>
+        <Label *ngIf="searchFilter" [text]="'fa-times' | fonticon" class="fas search__icon" (tap)="onClearSearch()" row="0" col="1"></Label>
+    </GridLayout>
+
+    <ns-todo-list *ngIf="searchFilter" [todoItems]="todos$ | async"></ns-todo-list>
+
+    <GridLayout *ngIf="!searchFilter || (todos$ |async)?.length == 0" rows="*" columns="*" width="100%" height="100%">
+        <StackLayout row="0" col="0" class="no-items">
+            <Label class="no-items__header" text="What do you want to find?"></Label>
+        </StackLayout>
+    </GridLayout>
+</StackLayout>

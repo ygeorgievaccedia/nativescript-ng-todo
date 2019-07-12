@@ -12,13 +12,13 @@
 }
 .add-todo__send {
     text-align: center;
-    vertical-align: middle;
+    vertical-align: center;
     font-size: $extra-large-size;
-    background-size: white;
-    z-index: 0;
+    background-color: white;
+    z-index: 0
 }
 .add-todo__send--valid {
-    color: $main-color;
+color: $main-color;
 }
 
 .options {
@@ -27,4 +27,29 @@
 .options__icon {
     font-size: $extra-large-size;
     margin-right: 30;
+}
+.option__icon--active {
+    color: $main-color;
+}
+
+.selected-option {
+    width: auto;
+    height: 30;
+    background-color: $main-color;
+    vertical-align: middle;
+    text-align: center;
+    padding: 5;
+    margin-right: 5;
+    border-radius: 5;
+}
+.selected-option__icon {
+    font-size: $medium-size;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+}
+.selected-option__text {
+    font-size: $medium-size;
+    color: white;
+    margin-left: 5;
 }

@@ -2,11 +2,12 @@
   <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButton()"></NavigationButton>
   <ActionItem icon="res://menu" android:visibility="collapsed" ios.position="left" (tap)="onDrawerButton()"></ActionItem>
   <Label class="action-bar-title" text="Inbox"></Label>
+  <ActionItem text="Search" ios.position="right" android.position="popup" (tap)="onOpenSearch()"></ActionItem>
 </ActionBar>
 
 <AbsoluteLayout>
     <StackLayout width="100%" height="100%">
-        <GridLayout rows="*, 120" columns="*">
+        <GridLayout rows="*, auto" columns="*">
             <ns-todo-list row="0" col="0" [todoItems]="todos$ | async"></ns-todo-list>
 
             <StackLayout row="1" col="0" *ngIf="showAddTodo">
@@ -24,4 +25,12 @@
             cornerRadius="100">
       <Label [text]="'fa-plus' | fonticon" class="fas add-todo-action__icon"></Label>
     </Border>
+
+    <GridLayout *ngIf="(todos$ | async)?.length == 0" rows="*" columns="*" width="100%" height="100%">
+      <StackLayout row="0" col="0" class="no-items">
+        <Label class="no-items__header" text="All clear"></Label>
+        <Label class="no-items__text" text="Looks like everything's organized in the right place."></Label>
+        <Label class="no-items__text" text="Tap + to add a task"></Label>
+      </StackLayout>
+    </GridLayout>
 </AbsoluteLayout>

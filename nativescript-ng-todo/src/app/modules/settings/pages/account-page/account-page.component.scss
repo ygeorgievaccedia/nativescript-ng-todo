@@ -1,0 +1,37 @@
+/* Add mobile styles for the component here.  */
+@import "../../../../../app-variables";
+
+.account {
+    padding: 20;
+}
+.account__title {
+    font-size: $medium-size;
+    color: $normal-text-color;
+    margin-bottom: 5;
+}
+.account__details {
+    font-size: $small-size;
+    color: gray;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 60;
+    height: 60;
+    border-width: 4;
+    border-color: $main-color;
+    margin-right: 20;
+}
+.avatar--no-photo {
+    border-radius: 0;
+    border-width: 0;
+    font-size: 60;
+}
+
+.delete__icon {
+    font-size: $large-size;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 20;
+    color: $error-color;
+}

@@ -1,0 +1,29 @@
+/* Add mobile styles for the component here.  */
+@import "../../../../../app-variables";
+
+.settings {
+    margin: 10;
+}
+.settings__icon {
+    font-size: $extra-extra-large-size;
+    text-align: center;
+    vertical-align: middle;
+}
+.settings__text {
+    text-align: left;
+    vertical-align: middle;
+    margin-left: 20;
+    font-size: $medium-size;
+    color: $normal-text-color;
+}
+
+.logout {
+    text-align: left;
+    vertical-align: middle;
+}
+.logout__current-user {
+    font-size: $small-size;
+    margin-left: 20;
+    text-align: left;
+    vertical-align: middle;
+}

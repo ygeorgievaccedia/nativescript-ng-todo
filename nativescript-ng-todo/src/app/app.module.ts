@@ -9,6 +9,10 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { InboxModule } from './modules/inbox/inbox.module';
 import { DetailsModule } from './modules/details/details.module';
+import { TodayModule } from './modules/today/today.module';
+import { SevenDaysModule } from './modules/seven-days/seven-days.module';
+import { SettingsModule } from './modules/settings/settings.module';
+import { SearchModule } from './modules/search/search.module';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -29,7 +33,11 @@ import { DetailsModule } from './modules/details/details.module';
         CoreModule,
         AuthModule,
         InboxModule,
+        TodayModule,
+        SevenDaysModule,
         DetailsModule,
+        SettingsModule,
+        SearchModule,
         AppRoutingModule,
     ],
     declarations: [

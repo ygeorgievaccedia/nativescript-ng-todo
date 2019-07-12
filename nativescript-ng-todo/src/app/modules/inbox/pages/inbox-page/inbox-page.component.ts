@@ -8,6 +8,7 @@ import { AbsoluteLayout } from "tns-core-modules/ui/layouts/absolute-layout";
 import { Store } from "~/app/core/state/app-store";
 import { Todo } from "~/app/core/models/todo.model";
 import { TodoService } from '~/app/core/services/todo.service';
+import { NavigationService } from '~/app/core/services/navigation.service';
 
 @Component({
     selector: "ns-inbox-page",
@@ -17,14 +18,14 @@ import { TodoService } from '~/app/core/services/todo.service';
 })
 export class InboxPageComponent implements OnInit, AfterViewInit, OnDestroy {
     public showAddTodo: boolean = false;
-    public currentUser$ = this.store.select<any>("currentUser");
     public todos$ = this.store.select<Todo[]>("allTodos");
 
     @ViewChild("addTodoButton", { static: false }) addTodoButton: ElementRef;
 
     constructor(
         private readonly store: Store,
-        private readonly todoService: TodoService) {}
+        private readonly todoService: TodoService,
+        private readonly navigationService: NavigationService) {}
 
     public ngOnInit() {
         this.todoService.getTodosList();
@@ -43,6 +44,10 @@ export class InboxPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public onAddTodoAction() {
         this.showAddTodo = true;
+    }
+
+    public onOpenSearch() {
+        this.navigationService.navigate(["search"], { transition: { name: "slideTop" } });
     }
 
     public onDrawerButton() {

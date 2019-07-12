@@ -5,7 +5,7 @@
 </ActionBar>
 
 <ng-container *ngIf="todo$ | async as Todo; else spinner">
-  <ns-details-form [todo]="todo$ | async" (save)="onSave($event)" (delete)="onDelete()"></ns-details-form>
+  <ns-details-form [model]="todo$ | async" (save)="onSave($event)" (delete)="onDelete()"></ns-details-form>
 </ng-container>
 
 <ng-template #spinner>
